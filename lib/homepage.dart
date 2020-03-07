@@ -64,6 +64,7 @@ class _homepageState extends State<homepage> {
                       ),
                       Container(
                         child: Expanded(
+                          flex: 2,
                           child: Padding(
                             padding: const EdgeInsets.only(left: 50),
                             child: IconButton(
@@ -76,122 +77,125 @@ class _homepageState extends State<homepage> {
                           ),
                         ),
                       ),
-                      PopupMenuButton(
-                          onSelected: (result) {
-                            setState(() {
-                              if (result == "profile") {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Profile()));
-                              }
-                              if (result == "setting") {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Setting()));
-                              }
-                              if (result == "cart") {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Cart()));
-                              }
-                              if (result == "logout") {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Login()));
-                              }
-                            });
-                          },
-                          icon: Icon(
-                            Icons.more_vert,
-                            size: 30,
-                            color: Color(0xff173006),
-                          ),
-                          color: Color(0xffD0EBBC),
-                          itemBuilder: (BuildContext context) => [
-                                PopupMenuItem(
-                                  value: "profile",
-                                  child: Column(
-                                    children: <Widget>[
-                                      Row(
-                                        children: <Widget>[
-                                          Icon(
-                                            Icons.person,
-                                            color: Color(0xff204408),
-                                          ),
-                                          Text(
-                                            "Profile",
-                                            style: TextStyle(
-                                              color: Color(0xff204408),
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                PopupMenuItem(
-                                    value: "setting",
+                      Expanded(
+                        flex: 1,
+                        child: PopupMenuButton(
+                            onSelected: (result) {
+                              setState(() {
+                                if (result == "profile") {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Profile()));
+                                }
+                                if (result == "setting") {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Setting()));
+                                }
+                                if (result == "cart") {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Cart()));
+                                }
+                                if (result == "logout") {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Login()));
+                                }
+                              });
+                            },
+                            icon: Icon(
+                              Icons.more_vert,
+                              size: 30,
+                              color: Color(0xff173006),
+                            ),
+                            color: Color(0xffD0EBBC),
+                            itemBuilder: (BuildContext context) => [
+                                  PopupMenuItem(
+                                    value: "profile",
                                     child: Column(
                                       children: <Widget>[
                                         Row(
                                           children: <Widget>[
                                             Icon(
-                                              Icons.settings,
+                                              Icons.person,
                                               color: Color(0xff204408),
                                             ),
                                             Text(
-                                              "Setting",
+                                              "Profile",
                                               style: TextStyle(
-                                                  color: Colors.green[900]),
-                                            ),
+                                                color: Color(0xff204408),
+                                              ),
+                                            )
                                           ],
                                         ),
                                       ],
-                                    )),
-                                PopupMenuItem(
-                                  value: "cart",
-                                  child: Column(
-                                    children: <Widget>[
-                                      Row(
+                                    ),
+                                  ),
+                                  PopupMenuItem(
+                                      value: "setting",
+                                      child: Column(
                                         children: <Widget>[
-                                          Icon(
-                                            Icons.shopping_cart,
-                                            color: Color(0xff204408),
-                                          ),
-                                          Text(
-                                            "Cart",
-                                            style: TextStyle(
-                                                color: Color(0xff204408)),
+                                          Row(
+                                            children: <Widget>[
+                                              Icon(
+                                                Icons.settings,
+                                                color: Color(0xff204408),
+                                              ),
+                                              Text(
+                                                "Setting",
+                                                style: TextStyle(
+                                                    color: Colors.green[900]),
+                                              ),
+                                            ],
                                           ),
                                         ],
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                PopupMenuItem(
-                                    value: "logout",
+                                      )),
+                                  PopupMenuItem(
+                                    value: "cart",
                                     child: Column(
                                       children: <Widget>[
                                         Row(
                                           children: <Widget>[
                                             Icon(
-                                              Icons.exit_to_app,
+                                              Icons.shopping_cart,
                                               color: Color(0xff204408),
                                             ),
                                             Text(
-                                              "Log Out",
+                                              "Cart",
                                               style: TextStyle(
-                                                  color: Colors.green[900]),
+                                                  color: Color(0xff204408)),
                                             ),
                                           ],
                                         ),
                                       ],
-                                    ))
-                              ]),
+                                    ),
+                                  ),
+                                  PopupMenuItem(
+                                      value: "logout",
+                                      child: Column(
+                                        children: <Widget>[
+                                          Row(
+                                            children: <Widget>[
+                                              Icon(
+                                                Icons.exit_to_app,
+                                                color: Color(0xff204408),
+                                              ),
+                                              Text(
+                                                "Log Out",
+                                                style: TextStyle(
+                                                    color: Colors.green[900]),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ))
+                                ]),
+                      ),
                     ],
                   ),
                 ),
